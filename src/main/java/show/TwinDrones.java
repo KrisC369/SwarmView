@@ -1,13 +1,13 @@
 package show;
 
 import applications.trajectory.Trajectories;
+import applications.trajectory.Trajectory4d;
 import applications.trajectory.geom.point.Point3D;
 import applications.trajectory.geom.point.Point4D;
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
 import choreo.Choreography;
 import control.FiniteTrajectory4d;
-import applications.trajectory.Trajectory4d;
 import org.slf4j.LoggerFactory;
 
 /**
@@ -17,6 +17,7 @@ public abstract class TwinDrones {
     protected static final double orientation = -Math.PI / 2;
     protected final double startIntroAt = 30;
     protected final double operatingHeight = 1.5;
+    protected final double endHeight = 1.5;
     protected final Point3D circleCenterPoint = Point3D.create(4, 4, operatingHeight);
     protected final double waitAtStation = 1.5;
     protected final double frequency = 1 / 2.32d; // ~max velocity achieved with f ~= 1/2.12 ~= 0.47
@@ -45,7 +46,7 @@ public abstract class TwinDrones {
 
     public static class Romeo extends TwinDrones {
         private final Point4D takeOff = Point4D.create(7, 5, operatingHeight, orientation);
-        private final Point4D endPoint = Point4D.create(2, 6, operatingHeight, orientation);
+        private final Point4D endPoint = Point4D.create(1.1, 5, endHeight, orientation);
         private final Point4D wp1 = Point4D.create(5, 4, operatingHeight, orientation);
         private final Point4D wp2 = Point4D.create(3, 4, operatingHeight, orientation);
         private final double phaseToConnectStart = 0;
@@ -80,7 +81,7 @@ public abstract class TwinDrones {
 
     public static class Juliet extends TwinDrones {
         private final Point4D takeOff = Point4D.create(1, 5, operatingHeight, orientation);
-        private final Point4D endPoint = Point4D.create(6, 6, operatingHeight, orientation);
+        private final Point4D endPoint = Point4D.create(4.9, 5, endHeight, orientation);
         private final Point4D wp1 = Point4D.create(3, 4, operatingHeight, orientation);
         private final Point4D wp2 = Point4D.create(5, 4, operatingHeight, orientation);
         private final double phaseToConnectStart = Math.PI;
