@@ -33,7 +33,6 @@ class StraightLineTrajectory4D extends BasicTrajectory implements FiniteTrajecto
     static StraightLineTrajectory4D createWithCustomVelocity(Point4D srcpoint, Point4D targetpoint,
             double velocity) {
         return new StraightLineTrajectory4D(srcpoint, targetpoint, velocity);
-
     }
 
     static StraightLineTrajectory4D createWithCustomTravelDuration(Point4D srcpoint,
